@@ -75,7 +75,7 @@
     </form>
 
     <p>Don't have an account? <a href="#" onclick="toggleForm()">Sign Up</a></p>
-    <p> asd</p>
+    <p> hello</p>
     <p>Forgot your password? <a href="./forgotpsswd.php">Change password</a></p>
    <p>Want to delete your account? <a href="./deleteacc.php" >Delete Account</a></p>
 </div>
