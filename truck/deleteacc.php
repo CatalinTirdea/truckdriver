@@ -73,7 +73,7 @@ session_start();
 
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
- <div class="g-recaptcha" data-sitekey="6LdrszUpAAAAAM2B4ciCayhFNrYxjvT1oGRknSrx"></div>
+ <div class="g-recaptcha" data-sitekey=""></div>
 
         <button type="submit">Delete Account</button>
     </form>
