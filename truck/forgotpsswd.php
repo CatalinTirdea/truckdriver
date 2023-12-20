@@ -81,7 +81,7 @@ session_start();
 
         <label for="confirmNewPassword">Confirm New Password:</label>
         <input type="password" id="confirmNewPassword" name="confirmNewPassword" required>
-         <div class="g-recaptcha" data-sitekey="6LdrszUpAAAAAM2B4ciCayhFNrYxjvT1oGRknSrx"></div> 
+         <div class="g-recaptcha" data-sitekey=""></div> 
         <button type="submit">Change Password</button>
     </form>
     <p><a href="login.php">Back to Login</a></p>
