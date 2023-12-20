@@ -12,7 +12,7 @@ include 'dbconnection.php';
 
 if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){ 
             // Google reCAPTCHA API secret key 
-            $secret_key = '6LdrszUpAAAAADCQbhW_3AriTxHjkfm_uhgqriWG';
+            $secret_key = '';
              
             // reCAPTCHA response verification
             $verify_captcha = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret_key.'&response='.$_POST['g-recaptcha-response']); 
