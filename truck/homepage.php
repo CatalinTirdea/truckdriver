@@ -72,7 +72,7 @@ echo '<div class="contact-form">
 				<textarea id="comment-content" name="content"></textarea>			
 			</div>
     
-    <div class="g-recaptcha" data-sitekey="6LdrszUpAAAAAM2B4ciCayhFNrYxjvT1oGRknSrx"></div>
+    <div class="g-recaptcha" data-sitekey=""></div>
 	<input class="btn btn-info" type="submit" name="submit" value="SUBMIT" >
 </form>';
 }else{
