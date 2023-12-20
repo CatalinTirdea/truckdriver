@@ -1,8 +1,19 @@
+<?php
+session_set_cookie_params(['HttpOnly' => true, 'Secure' => true]);
+session_start();
+if(isset($_SESSION['loggedin'])){
+  header('Location: homepage.php');
+    
+}
+?>
+
+
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>  
+<style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -58,29 +69,27 @@
             margin-top: 10px;
         }
     </style>
-    <title>Forgot Password</title>
+    <title>Login</title>
 </head>
 <body>
 
 <div class="container">
-    <h2>Forgot Password</h2>
-    <form action="checkforgot.php" method="post">
-       
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <label for="currentPassword">Current Password:</label>
-        <input type="password" id="currentPassword" name="currentPassword" required>
+    <h2>Login</h2>
+    <form action="checklogin.php" method="post">
+        <label for="loginEmail">Email:</label>
+        <input type="email" id="loginEmail" name="loginEmail" required>
 
-        <label for="newPassword">New Password:</label>
-        <input type="password" id="newPassword" name="newPassword" required>
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" name="loginPassword" required>
+        <div class="g-recaptcha" data-sitekey="6LdrszUpAAAAAM2B4ciCayhFNrYxjvT1oGRknSrx"></div>
 
-        <label for="confirmNewPassword">Confirm New Password:</label>
-        <input type="password" id="confirmNewPassword" name="confirmNewPassword" required>
-
-        <button type="submit">Change Password</button>
+        <button type="submit">Login</button>
     </form>
-    <p><a href="login.php">Back to Login</a></p>
+ <p>Don't want to log in?   <a href = './homepage.php'>Continue as guest</a></p>
+    <p>Don't have an account? <a href="./signup.php">Sign Up</a></p>
+    <p>Forgot your password? <a href="./forgotpsswd.php">Change password</a></p>
+   <p>Want to delete your account? <a href="./deleteacc.php" >Delete Account</a></p>
 </div>
-
 </body>
 </html>
+

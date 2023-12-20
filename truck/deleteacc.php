@@ -1,6 +1,11 @@
+<?php
+session_set_cookie_params(['HttpOnly' => true, 'Secure' => true]);
+session_start();
+?>
 <html>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -68,6 +73,7 @@
 
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
+ <div class="g-recaptcha" data-sitekey="6LdrszUpAAAAAM2B4ciCayhFNrYxjvT1oGRknSrx"></div>
 
         <button type="submit">Delete Account</button>
     </form>

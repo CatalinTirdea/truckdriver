@@ -1,8 +1,13 @@
+<?php
+session_set_cookie_params(['HttpOnly' => true, 'Secure' => true]);
+session_start();
+?>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>  
+<style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -58,29 +63,14 @@
             margin-top: 10px;
         }
     </style>
-    <title>Login and Sign Up</title>
+    <title>Sign Up</title>
 </head>
 <body>
 
+
+
+
 <div class="container">
-    <h2>Login</h2>
-    <form action="checklogin.php" method="post">
-        <label for="loginEmail">Email:</label>
-        <input type="email" id="loginEmail" name="loginEmail" required>
-
-        <label for="loginPassword">Password:</label>
-        <input type="password" id="loginPassword" name="loginPassword" required>
-
-        <button type="submit">Login</button>
-    </form>
-
-    <p>Don't have an account? <a href="#" onclick="toggleForm()">Sign Up</a></p>
-    <p> hello</p>
-    <p>Forgot your password? <a href="./forgotpsswd.php">Change password</a></p>
-   <p>Want to delete your account? <a href="./deleteacc.php" >Delete Account</a></p>
-</div>
-
-<div class="container" style="display: none;">
     <h2>Sign Up</h2>
     <form action="checksignup.php" method="post">
         <label for="signupEmail">Email:</label>
@@ -88,26 +78,13 @@
 
         <label for="signupPassword">Password:</label>
         <input type="password" id="signupPassword" name="signupPassword" required>
-
+ <div class="g-recaptcha" data-sitekey="6LdrszUpAAAAAM2B4ciCayhFNrYxjvT1oGRknSrx"></div>
         <button type="submit">Sign Up</button>
     </form>
 
-    <p>Already have an account? <a href="#" onclick="toggleForm()">Login</a></p>
-     
+    <p>Already have an account? <a href="./login.php">Login</a></p>
+    
 
 </div>
-
-
-<script>
-    function toggleForm() {
-        var loginForm = document.querySelector('.container');
-        var signupForm = document.querySelector('.container:last-of-type');
-
-        loginForm.style.display = (loginForm.style.display === 'none') ? 'block' : 'none';
-        signupForm.style.display = (signupForm.style.display === 'none') ? 'block' : 'none';
-    }
-</script>
-
 </body>
 </html>
-
