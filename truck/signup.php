@@ -78,7 +78,7 @@ session_start();
 
         <label for="signupPassword">Password:</label>
         <input type="password" id="signupPassword" name="signupPassword" required>
- <div class="g-recaptcha" data-sitekey="6LdrszUpAAAAAM2B4ciCayhFNrYxjvT1oGRknSrx"></div>
+ <div class="g-recaptcha" data-sitekey=""></div>
         <button type="submit">Sign Up</button>
     </form>
 
