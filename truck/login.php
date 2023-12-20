@@ -81,7 +81,7 @@ if(isset($_SESSION['loggedin'])){
 
         <label for="loginPassword">Password:</label>
         <input type="password" id="loginPassword" name="loginPassword" required>
-        <div class="g-recaptcha" data-sitekey="6LdrszUpAAAAAM2B4ciCayhFNrYxjvT1oGRknSrx"></div>
+        <div class="g-recaptcha" data-sitekey=""></div>
 
         <button type="submit">Login</button>
     </form>
