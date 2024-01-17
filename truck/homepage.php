@@ -19,10 +19,16 @@ session_start();
   <div class="navbar">
 
    <img src="./resources/i03435ra8mhgrbuj87a634bge3.png" alt="Logo" width ="125px" height = "100px" >
-   <div class="navbar-links"><a href="./homepage.php">Home</a></div>
+   <div class="navbar-links"><a href="./homepage.html">Home</a></div>
    <div class="navbar-links"> <a href="./index.php">About</a></div>
    <div class="navbar-links"><a href="">Your Truck</a></div>
-  
+   <?php
+  if(isset($_SESSION['query'])){
+    if($_SESSION['query'] = 'admin'){
+      echo '  <div class="navbar-links"><a href="statistics.php">Page Statistics</a></div>';
+    }
+  }
+?> 
    <?php 
     if(isset($_SESSION["loggedin"])){
       echo'<div class="navbar-links" style ="color:white; text-decoration:none;margin:0 15px;">Role: '.$_SESSION['query'] . '</div>';
@@ -51,6 +57,46 @@ session_start();
 </ul>
 
 <p>Ne străduim să oferim clienților noștri soluții de transport fiabile și eficiente, bazate pe profesionalismul și experiența echipei noastre de șoferi.</p>
+<p>Mai jos gasiti cateva informatii generalizate despre noi.(Sursa wikipedia)</p>
+
+<?php
+$url = 'https://en.wikipedia.org/wiki/Truck_driver';
+
+
+$html = file_get_contents($url);
+
+if ($html !== false) {
+    // Crează un obiect DOMDocument
+    $dom = new DOMDocument();
+
+    // Suprimă erorile XML pentru a evita afișarea lor în timpul parsării
+    libxml_use_internal_errors(true);
+
+    // Încarcă conținutul HTML în DOMDocument
+    $dom->loadHTML($html);
+
+    // Restaurează afișarea erorilor XML
+    libxml_use_internal_errors(false);
+
+    // Obține primul element h1
+    $firstHeading = $dom->getElementsByTagName('h1')->item(0);
+
+    // Obține primele două paragrafe de text
+    $paragraphs = $dom->getElementsByTagName('p');
+    $firstTwoParagraphs = '';
+    for ($i = 0; $i < 2 && $i < $paragraphs->length; $i++) {
+        $firstTwoParagraphs .= $paragraphs->item($i)->textContent . '<br>';
+    }
+
+    // Afișează titlul și primele două paragrafe
+    echo '<h1>' . $firstHeading->textContent . '</h1>';
+    echo $firstTwoParagraphs;
+} else {
+    // Afișează un mesaj de eroare în cazul în care nu s-a putut obține conținutul
+    echo 'Eroare la obținerea conținutului de la ' . $url;
+}
+?>
+
 <?php if(isset($_SESSION['loggedin'])){
 echo '<div class="contact-form">
     <h2>Contacteaza-ne pentru un job sau alte informatii! </h2>

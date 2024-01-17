@@ -142,8 +142,6 @@ if ( $_SERVER['REQUEST_METHOD']=='GET' && realpath(__FILE__) == realpath( $_SERV
         <li>Stocarea și gestionarea datelor în tabelele respective</li>
     </ul>
 
-    <h1>Soluția de Implementare Propusă</h1>
-
     <h2>Front-end și Back-end (Full-stack PHP)</h2>
     <p>Interfața de autentificare va fi creată folosind HTML și CSS, cu cod PHP pentru procesarea datelor și a cererilor.</p>
     <p>După autentificare, datele despre comenzile și facturile utilizatorului vor fi afișate într-o interfață grafică folosind HTML, CSS și PHP.</p>

@@ -74,8 +74,45 @@ if(isset($_POST['submit'])){
                          //!!!!!! DACA VREAU SA TRIMIT MAIL TREBUIE DOAR =SA INVERSEZ AddAddress si SetFrom!!!!  
 				  
                   $returnMsg = 'Your message has been submitted successfully.'; 
-				  
-                }
+  $nume='Formular Truck Driver';
+
+  $mail->SMTPSecure = "ssl";                 
+  $mail->Host       = "smtp.gmail.com";      
+  $mail->Port       = 465;                   
+  $mail->Username   = $username;  			// GMAIL username
+  $mail->Password   = $password;            // GMAIL password
+  $mail->AddReplyTo('tirdea.catalin@yahoo.com', 'Daw Project');
+  $mail->AddAddress($email, $name);
+ $mail->addBcc("tirdea.catalin@gmail.com");
+  $mail->SetFrom($toEmail, $nume);
+  $mail->Subject = 'Formular Contact';
+  $mail->AltBody = 'To view this post you need a compatible HTML viewer!'; 
+  $mail->MsgHTML("Multumim pentru interes. Dorim sa va informam ca formularul a fost trimis cu succes!");
+  $mail->Send();
+
+  require_once('./FPDF/fpdf.php');
+$pdf = new FPDF();
+$pdf->AddPage();
+$pdf->SetFont('Courier', 'B', 16);
+
+                //$name = $_POST['name']; 
+                //$email = $_POST['email']; 
+                //$phone = $_POST['phone'];
+// $message = $_POST['content'];
+$pdf->Cell(40, 10, 'Nume: ' . $name);
+$pdf->Ln();
+$pdf->Cell(40, 10, 'E-mail: ' . $email);
+$pdf->Ln();
+$pdf->Cell(40, 10, 'Telefon: ' . $phone);
+$pdf->Ln();
+$pdf->Cell(40, 10, 'Mesaj: ' . $message);
+$name = $message = $message = $phone = '';
+// Salvează sau afișează PDF-ul
+$pdf->Output('formular.pdf', 'D');
+
+    exit; 
+        
+        }
                  catch (phpmailerException $e) {
 												  echo $e->errorMessage(); //error from PHPMailer
 												}
@@ -92,7 +129,6 @@ if(isset($_POST['submit'])){
 				$returnMsg = 'Please fill all the required fields.'; 
 			} 
 } 
-
 header("Location: ./homepage.php");
 ?>
 
