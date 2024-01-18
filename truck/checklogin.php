@@ -46,6 +46,10 @@ if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'
         if ($result->num_rows > 0) {
           $row = $result->fetch_assoc();
           $_SESSION['query'] = $row['role'];
+          if($_SESSION['query']  == 'worker' OR $_SESSION['query']  == 'Worker')
+          {
+            $_SESSION['id']  = $row['ID'];
+          }
           $_SESSION['loggedin'] = True;
           $_SESSION['username'] = $email;
             header("Location: ./homepage.php");

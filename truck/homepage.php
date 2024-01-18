@@ -21,10 +21,17 @@ session_start();
    <img src="./resources/i03435ra8mhgrbuj87a634bge3.png" alt="Logo" width ="125px" height = "100px" >
    <div class="navbar-links"><a href="./homepage.html">Home</a></div>
    <div class="navbar-links"> <a href="./index.php">About</a></div>
-   <div class="navbar-links"><a href="">Your Truck</a></div>
+<?php 
+if(isset($_SESSION['query'])){
+  if($_SESSION['query'] == 'worker'){
+echo ' <div class="navbar-links"><a href="./truck.php">Your Truck</a></div>'; 
+  }
+}
+?>   
+
    <?php
   if(isset($_SESSION['query'])){
-    if($_SESSION['query'] = 'admin'){
+    if($_SESSION['query'] == 'admin' OR $_SESSION['query'] == 'Admin'){
       echo '  <div class="navbar-links"><a href="statistics.php">Page Statistics</a></div>';
     }
   }
